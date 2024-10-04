@@ -1,6 +1,7 @@
 body{
     display: flex;
     justify-content:  center;
+    align-items: center;
 }
 
 .calculator{
@@ -10,32 +11,52 @@ body{
     width: 500px;
     height: 600px;
     border: 10px solid black;
+    border-radius: 5px;
 }
 
-.display{
+.wholedisplay{
   display: flex;
   flex:1;
-  height: 110px;
   background-color: aliceblue;
   border: 20px solid black;
   border-bottom: 80px solid black;
-  font-size: 50px;
-  align-items: end;
-  justify-content: end;
   overflow: hidden;
+  justify-content: space-between;
+  align-items: end;
+  flex-direction: column;
 }
+
+.minidisplay{
+    display: flex;
+    flex:1.5;
+    min-width: 100%;
+    background-color: lightgray;
+    font-size: 30px;
+    align-items: end;
+    justify-content: end;
+}
+
+.display{
+    display: flex;
+    flex:2.5;
+    font-size: 50px;
+    align-items: end;
+    justify-content: end;
+}
+
+
 .buttons{
     display: flex;
     flex-direction: column;
     flex:4;
+    gap:1px;
     justify-content: space-between;
-    border-radius: 8px;
+    background-color: #454545;
+    
 }
 
 .spl{
     display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
     flex:1;
 }
 
@@ -49,8 +70,22 @@ body{
     flex: 1;
     flex-direction: column;
 }
+
 .spl .sub-but{
+    display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    
+}
+
+.spl .sub-but button{
+    flex:1;
+    background-color: blueviolet;
+}
+
+.normal .op button{
+   background-color: darkorange;
 }
 
 button{
@@ -60,4 +95,5 @@ button{
     align-items: center;
     font-size: x-large;
     background-color: darkgrey;
+    border-radius: 8px;
 }

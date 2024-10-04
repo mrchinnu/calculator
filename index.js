@@ -39,39 +39,45 @@ function operation(first,operator,second){
 
 const buttons=document.querySelector(".buttons");
 const display=document.querySelector(".display");
+const minidisplay=document.querySelector(".minidisplay");
 const audio=document.querySelector(".audio");
 buttons.addEventListener("click",(event)=>{
     audio.play();
     console.log(event.target.value);
-    let a="1234567890"
+    let a="1234567890."
     if(a.includes(event.target.value)){
         if(firstnumber===1*display.innerHTML){
             display.innerHTML='';
         }
         display.innerHTML=display.innerHTML+event.target.value;
+        minidisplay.innerHTML=minidisplay.innerHTML+event.target.value;
     }else if(event.target.value==='ac'){
         display.innerHTML='';
+        minidisplay.innerHTML='';
         firstnumber=0;
         secondnumber=0;
         operator='';
     }else if(event.target.value==='equals'){
         secondnumber=1*display.innerHTML;
-        display.innerHTML=operation(firstnumber,operator,secondnumber);
+        minidisplay.innerHTML=display.innerHTML=operation(firstnumber,operator,secondnumber);
         firstnumber=0;
         secondnumber=0;
         operator='';
     }else if(event.target.value==='clear'){
         display.innerHTML=(display.innerHTML).substring(0,display.innerHTML.length-1);
+        minidisplay.innerHTML=(minidisplay.innerHTML).substring(0,minidisplay.innerHTML.length-1);
     }else {
         if(operator===''){
         firstnumber=1*display.innerHTML;
         operator=event.target.value;
         display.innerHTML="";
+        minidisplay.innerHTML=minidisplay.innerHTML+operator;
         }else{
             secondnumber=1*display.innerHTML;
             firstnumber=operation(firstnumber,operator,secondnumber);
             operator=event.target.value;
             display.innerHTML=firstnumber;
+            minidisplay.innerHTML=display.innerHTML+operator;
         }
     }
 });
